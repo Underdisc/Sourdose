@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cad24annhqe6u"
-path="res://.godot/imported/counter_bg.png-7f1d022122a98b7da2d46023018e6b1d.ctex"
+uid="uid://cfjwf15l7t3ep"
+path="res://.godot/imported/bread_icon.png-e91363bf639d6ac7218009afcf3f442b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures-menu/counter_bg.png"
-dest_files=["res://.godot/imported/counter_bg.png-7f1d022122a98b7da2d46023018e6b1d.ctex"]
+source_file="res://assets/textures_hud/bread_icon.png"
+dest_files=["res://.godot/imported/bread_icon.png-e91363bf639d6ac7218009afcf3f442b.ctex"]
 
 [params]
 
