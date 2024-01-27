@@ -40,15 +40,16 @@ func spawn_pidgeons(block):
 			var sample = noise.get_noise_2dv(possible_spawn) * 0.7
 			var bias = 0.2
 			if sample + randf() * bias > 0:
-				spawn_pidgeon(possible_spawn)
+				var y_pos = spawn_area.position.y - spawn_area.shape.size.y / 2
+				var spawn_position = Vector3(possible_spawn.x, y_pos, possible_spawn.y)
+				spawn_pidgeon(spawn_position)
 
 func spawn_pidgeon(spawn_position):
 	var pidgeon = pidgeon_scene.instantiate()
 	var offset = Vector3(randf_range(-0.05, 0.05),0, randf_range(-0.05, 0.05))
-	pidgeon.position = Vector3(spawn_position.x, 0, spawn_position.y) + offset
+	pidgeon.position = spawn_position + offset
 	pidgeon.rotation.y = randf_range(-PI, PI)
 	add_child(pidgeon)
-
 
 func _on_player_need_new_block():
 	spawn_block()
