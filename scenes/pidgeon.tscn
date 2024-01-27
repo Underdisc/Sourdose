@@ -33,6 +33,11 @@ bones/7/rotation = Quaternion(0.993952, 0.0780966, 0.0759899, -0.0136437)
 bones/8/rotation = Quaternion(0.993952, 0.0780966, 0.0759899, -0.0136437)
 bones/9/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0489545, 0)
+aabb = AABB(-2.959, -0.172, -2.943, 5, 0.5, 5)
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 
 [editable path="pidgeon"]
