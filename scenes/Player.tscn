@@ -14,7 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.186159)
 script = ExtResource("2_o4tks")
 
 [node name="Pivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.875397, 0.483405, 0, -0.483405, 0.875397, 0, -0.467225, -1.21623)
+transform = Transform3D(1, 0, 0, 0, 0.964096, 0.265556, 0, -0.265556, 0.964096, 0, -0.467225, -1.21623)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.981413, 0.191905, 0, -0.191905, 0.981413, 0, 0.275375, 1.79537)
