@@ -12,8 +12,14 @@ func _on_area_3d_body_entered(body):
 	var quat = Quaternion(Vector3(1, 0, 0), velocity)
 	velocity *= randf_range(2, 5)
 	rotation = quat.get_euler()
+	var speed = randf_range(1, 3)
+	anim_player.play("pidgeon-a-fluttering", -1, speed, false)
+	anim_player.advance(0)
+
+func _ready():
+	var speed = randf_range(1, 3)
+	anim_player.play("pidgeon-idle", -1, speed, false)
 
 func _process(delta):
-	anim_player.play("pidgeon-a-walking")
 	position += velocity * delta
 	
