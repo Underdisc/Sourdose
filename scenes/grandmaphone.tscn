@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bimwa72d8bf77"]
+
+[ext_resource type="PackedScene" uid="uid://dfmsnbca2mlt6" path="res://assets/models/grandmaphone.glb" id="1_gd5nw"]
+
+[node name="Grandmaphone" type="Node3D"]
+
+[node name="grandmaphone" parent="." instance=ExtResource("1_gd5nw")]
