@@ -11,11 +11,8 @@ func _ready():
 	noise.seed = randi()
 	noise.fractal_octaves = 4
 	noise.frequency = 1.0 / 3.0
-	$BlockTimer.start(1)
-	spawn_block()
-
-func _on_block_timer_timeout():
-	spawn_block()
+	for i in 5:
+		spawn_block()
 
 # This should be called once the player reaches a point where a new block needs
 # to be spawned.
@@ -51,3 +48,7 @@ func spawn_pidgeon(spawn_position):
 	pidgeon.position = Vector3(spawn_position.x, 0, spawn_position.y) + offset
 	pidgeon.rotation.y = randf_range(-PI, PI)
 	add_child(pidgeon)
+
+
+func _on_player_need_new_block():
+	spawn_block()

@@ -2,10 +2,18 @@ extends Node3D
 
 # Movement speed
 var speed = 5.0
+var z_at_last_need_new_block = 1;
+var block_size
+
+@export var block_scene: PackedScene
+
+signal need_new_block
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	position = Vector3(0, 0, z_at_last_need_new_block)
+	var block = block_scene.instantiate()
+	block_size = block.get_node("PidgeonSpawn").get_node("Area").shape.size.z
 
 # Called every physics frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -23,4 +31,12 @@ func _physics_process(delta):
 	velocity = velocity.normalized() * speed
 
 	# Apply the movement
-	translate(velocity * delta)
+	position += (velocity * delta)
+	
+	var dist_since_last_block_spawn = abs(position.z - z_at_last_need_new_block)
+	var block = block_scene.instantiate()
+	var spawn_area = block.get_node("PidgeonSpawn").get_node("Area")
+	if (dist_since_last_block_spawn > block_size):
+		need_new_block.emit()
+		z_at_last_need_new_block -= block_size
+		
