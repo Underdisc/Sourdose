@@ -5,6 +5,9 @@ extends RigidBody3D
 
 # Maximum distance to travel before gravity takes over completely
 @export var max_distance: float = 10.0
+
+@export var bread_rotation: float = 5.0
+
 # Tracking the distance traveled
 var distance_traveled: float = 0.0
 # Initial position to calculate distance from
@@ -31,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		apply_central_impulse(forward_dir * impulse_strength)
 		
 		# Apply a small random angular impulse for rotation (adjust the range as needed)
-		angular_velocity = Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
+		angular_velocity = Vector3(randf_range(-1.0 * bread_rotation, 1.0 * bread_rotation), randf_range(-1.0 * bread_rotation, 1.0 * bread_rotation), randf_range(-1.0 * bread_rotation, 1.0 * bread_rotation))
 		impulse_applied = true
 	
 	# Calculate the distance traveled
