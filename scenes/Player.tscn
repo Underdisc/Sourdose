@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://u2iv7vtyj28"]
+[gd_scene load_steps=5 format=3 uid="uid://c6lnmdkvpm0pn"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
 [ext_resource type="PackedScene" uid="uid://besjly1jix0sj" path="res://scenes/block.tscn" id="2_45ywl"]
 [ext_resource type="Script" path="res://scripts/BreadLauncher.gd" id="2_o4tks"]
+[ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_x5oyd")
@@ -19,3 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 0.875397, 0.483405, 0, -0.483405, 0.875397, 
 transform = Transform3D(1, 0, 0, 0, 0.981413, 0.191905, 0, -0.191905, 0.981413, 0, 0.275375, 1.79537)
 current = true
 fov = 72.9
+
+[node name="UIinGame" parent="." instance=ExtResource("4_31v44")]
+
+[connection signal="thrown" from="BreadLauncher" to="UIinGame" method="_on_bread_thrown"]

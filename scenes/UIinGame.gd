@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_bread_thrown():
-	current_bread_count -= 1
+	current_bread_count -= 0.1
 	update_ui()
 	
 
