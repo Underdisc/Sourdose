@@ -3,28 +3,55 @@ extends Node3D
 @export var block_scene: PackedScene
 @export var pidgeon_scene: PackedScene
 
-var next_block_spawn_index = 0
+var next_block_move_index = -1
 var noise = FastNoiseLite.new()
+var blocks: Array[Node3D]
+var active_blocks: Array[int]
+var inactive_blocks: Array[int]
 
 func _ready():
 	noise.noise_type = FastNoiseLite.NoiseType.TYPE_SIMPLEX_SMOOTH
 	noise.seed = randi()
 	noise.fractal_octaves = 4
 	noise.frequency = 1.0 / 3.0
-	for i in 5:
-		spawn_block()
+	spawn_blocks()
+	for i in 7:
+		add_block_to_path()
 
-# This should be called once the player reaches a point where a new block needs
-# to be spawned.
-func spawn_block():
+func spawn_blocks():
+	for i in 6:
+		spawn_block(i, i * 2, PI / 2)
+		spawn_block(i, i * 2 + 1, -PI / 2)
+
+func spawn_block(mesh_idx, idx, spin):
 	var block = block_scene.instantiate()
-	var collision_volume = block.get_node("Ground").get_node("CollisionVolume")
-	var spawn_point = Vector3.ZERO
-	spawn_point.z = -1 * next_block_spawn_index * collision_volume.shape.size.z
-	next_block_spawn_index += 1
-	block.position = spawn_point
+	var block_mesh = block.block_meshes[mesh_idx].instantiate()
+	block_mesh.rotation.y = spin
+	block_mesh.position.y = -0.353
+	block.add_child(block_mesh)
+	block.position.z = 10
+	blocks.append(block)
 	add_child(block)
+	inactive_blocks.push_back(idx)
+
+func remove_block_from_path():
+	inactive_blocks.push_back(active_blocks.front())
+	active_blocks.pop_front()
+	pass
+
+func add_block_to_path():
+	var inactive_idx = randi_range(0, inactive_blocks.size() - 1)
+	var block_idx = inactive_blocks[inactive_idx]
+	var block = blocks[block_idx]
+	var move_point = Vector3.ZERO
+	var collision_volume = block.get_node("Ground").get_node("CollisionVolume")
+	move_point.z = -1 * next_block_move_index * collision_volume.shape.size.z
+	next_block_move_index += 1
+	block.position = move_point
 	spawn_pidgeons(block)
+	active_blocks.push_back(block_idx)
+	inactive_blocks.remove_at(inactive_idx)
+	
 
 func spawn_pidgeons(block):
 	var spawn_area = block.get_node("PidgeonSpawn").get_node("Area")
@@ -52,4 +79,5 @@ func spawn_pidgeon(spawn_position):
 	add_child(pidgeon)
 
 func _on_player_need_new_block():
-	spawn_block()
+	add_block_to_path()
+	remove_block_from_path()
