@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://duln75ycrlklq"]
 
-[ext_resource type="PackedScene" uid="uid://dvyou3jkde16g" path="res://assets/models/bread_boxy.glb" id="1_hw1co"]
+[ext_resource type="PackedScene" uid="uid://dvyou3jkde16g" path="res://assets/models/bread_boxy.glb" id="1_bk13g"]
 
 [node name="BreadBoxy" type="Node3D"]
 
-[node name="bread_boxy" parent="." instance=ExtResource("1_hw1co")]
+[node name="bread_boxy" parent="." instance=ExtResource("1_bk13g")]
