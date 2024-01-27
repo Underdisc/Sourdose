@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/environment.gd" id="1_lu6d8"]
 [ext_resource type="PackedScene" uid="uid://lp6fv6tdofh6" path="res://scenes/blocks/Block.tscn" id="2_qhmyu"]
 [ext_resource type="PackedScene" uid="uid://s2rbv612iiue" path="res://scenes/pidgeon.tscn" id="3_uiogr"]
-[ext_resource type="PackedScene" uid="uid://u2iv7vtyj28" path="res://scenes/Player.tscn" id="4_te8kx"]
+[ext_resource type="PackedScene" uid="uid://c6lnmdkvpm0pn" path="res://scenes/Player.tscn" id="4_te8kx"]
 
 [node name="Environment" type="Node3D"]
 script = ExtResource("1_lu6d8")

@@ -3,6 +3,8 @@ extends Node3D
 signal pidgeon_hit
 var velocity = Vector3.ZERO
 
+@onready var anim_player : AnimationPlayer = $"pidgeon/AnimationPlayer"
+
 func _on_area_3d_body_entered(body):
 	pidgeon_hit.emit()
 	velocity = Vector3(randf_range(-1, 1), randf_range(0, 1), randf_range(-1,1))
@@ -12,5 +14,6 @@ func _on_area_3d_body_entered(body):
 	rotation = quat.get_euler()
 
 func _process(delta):
+	anim_player.play("pidgeon-a-walking")
 	position += velocity * delta
 	
