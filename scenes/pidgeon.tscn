@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://drp02kpp2q6o1"]
+
+[ext_resource type="PackedScene" uid="uid://rn202oqbtsj6" path="res://assets/models/pidgeon.glb" id="1_nthv8"]
+
+[node name="Pidgeon" type="Node3D"]
+
+[node name="pidgeon" parent="." instance=ExtResource("1_nthv8")]
