@@ -1,15 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5klc6c3w8vkx"]
+[gd_scene load_steps=4 format=3 uid="uid://c5klc6c3w8vkx"]
 
 [ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
+[ext_resource type="Texture2D" uid="uid://cfjwf15l7t3ep" path="res://assets/textures_hud/bread_icon.png" id="2_hsmjb"]
+[ext_resource type="Texture2D" uid="uid://cyvv7phevrnwm" path="res://assets/textures-menu/button-bg-small.png" id="3_o3mbx"]
 
 [node name="UIinGame" type="Control" node_paths=PackedStringArray("gameText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -7.0
-offset_right = 3.0
+offset_left = 20.0
+offset_top = -9.0
+offset_right = 17.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -19,14 +22,51 @@ script = ExtResource("1_3rr05")
 gameText = NodePath("GameText")
 
 [node name="GameText" type="RichTextLabel" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(100, 100)
 layout_direction = 1
 layout_mode = 2
-offset_left = 58.6667
-offset_top = 338.667
-offset_right = 243.667
-offset_bottom = 438.667
+offset_left = 124.667
+offset_top = 336.667
+offset_right = 309.667
+offset_bottom = 436.667
 size_flags_stretch_ratio = 0.55
 text = "100/100"
 fit_content = true
 tab_size = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.155
+anchor_top = 0.195
+anchor_right = 0.155
+anchor_bottom = 0.195
+offset_left = -178.095
+offset_top = -127.725
+offset_right = 77.905
+offset_bottom = 128.275
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.6667
+offset_top = -342.333
+offset_right = 375.667
+offset_bottom = -25.3334
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_hsmjb")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 111.333
+offset_top = 324.667
+offset_right = 1031.33
+offset_bottom = 777.667
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_o3mbx")
