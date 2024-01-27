@@ -19,19 +19,22 @@ func shoot_model() -> void:
 	# Instance the model scene
 	var model_instance: Node = model_scene.instantiate()
 	
-	# Assuming the BreadLauncher is a direct child of the Player
-	var player_node: Node3D = get_parent() as Node3D
-	
-	# Add the model instance to the scene at the root level
-	get_tree().root.add_child(model_instance)
-	
+	# Get a reference to the player node (assuming this script is attached to the player)
+	var player_node: Node3D = self  # or get_parent(), if this script is a child of the player node
+
 	# Set it to start at the player's location
 	model_instance.global_transform.origin = player_node.global_transform.origin
 
-	# Emit the "thrown" signal when the bread is generated
-	thrown.emit()
+	# Add the model instance to the scene
+	get_tree().root.add_child(model_instance)
 	
-	# Apply an initial forward force or velocity
+	
+
+	# Emit the "thrown" signal when the bread is generated
+	emit_signal("thrown")
+	
+	# Apply an initial forward force or velocity, if applicable
 	if model_instance is RigidBody3D:
 		var velocity: Vector3 = -player_node.global_transform.basis.z.normalized() * shoot_speed
 		model_instance.apply_impulse(Vector3.ZERO, velocity)
+
