@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bydjdmlndrpr"]
+
+[ext_resource type="PackedScene" uid="uid://lbyhlm56ay7m" path="res://assets/models/buildings/block04.glb" id="1_rbwq6"]
+
+[node name="BlockMesh04" type="Node3D"]
+
+[node name="block04" parent="." instance=ExtResource("1_rbwq6")]

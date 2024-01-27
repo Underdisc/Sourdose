@@ -1,0 +1,33 @@
+[gd_scene load_steps=11 format=3 uid="uid://lp6fv6tdofh6"]
+
+[ext_resource type="Script" path="res://scenes/block.gd" id="1_xcedk"]
+[ext_resource type="PackedScene" uid="uid://ch6micdw1cek6" path="res://scenes/blocks/block_mesh_01.tscn" id="2_y3w3j"]
+[ext_resource type="PackedScene" uid="uid://cxdadqbrtmowc" path="res://scenes/blocks/block_mesh_02.tscn" id="3_5jojm"]
+[ext_resource type="PackedScene" uid="uid://dktkx3nhgcota" path="res://scenes/blocks/block_mesh_03.tscn" id="4_l08nj"]
+[ext_resource type="PackedScene" uid="uid://bydjdmlndrpr" path="res://scenes/blocks/block_mesh_04.tscn" id="5_hx7jw"]
+[ext_resource type="PackedScene" uid="uid://c7g8617mm8vky" path="res://scenes/blocks/block_mesh_05.tscn" id="6_2fg21"]
+[ext_resource type="PackedScene" uid="uid://dadfgo0vpf5j5" path="res://scenes/blocks/block_mesh_06.tscn" id="7_bb8rd"]
+[ext_resource type="PackedScene" uid="uid://gjecuo65ieav" path="res://scenes/blocks/block_mesh_07.tscn" id="8_yw3fo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_brioo"]
+size = Vector3(10, 2, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3x815"]
+size = Vector3(4.5, 1, 6)
+
+[node name="Block" type="Node3D" groups=["gound"]]
+script = ExtResource("1_xcedk")
+block_meshes = Array[PackedScene]([ExtResource("2_y3w3j"), ExtResource("3_5jojm"), ExtResource("4_l08nj"), ExtResource("5_hx7jw"), ExtResource("6_2fg21"), ExtResource("7_bb8rd"), ExtResource("8_yw3fo")])
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionVolume" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.510097, 0)
+shape = SubResource("BoxShape3D_brioo")
+
+[node name="PidgeonSpawn" type="Area3D" parent="."]
+
+[node name="Area" type="CollisionShape3D" parent="PidgeonSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00630331, 0, -0.00459671)
+shape = SubResource("BoxShape3D_3x815")
