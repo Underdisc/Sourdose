@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dic4mhqlev0qy"]
+[gd_scene load_steps=4 format=3 uid="uid://s2rbv612iiue"]
 
 [ext_resource type="PackedScene" uid="uid://rn202oqbtsj6" path="res://assets/models/pidgeon.glb" id="1_nthv8"]
+[ext_resource type="Script" path="res://scripts/pidgeon.gd" id="1_o3m6q"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gibri"]
-radius = 0.0495296
-height = 0.314998
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c2ohb"]
+radius = 0.0540827
+height = 0.305542
 
-[node name="Pidgeon" type="CharacterBody3D"]
+[node name="Pidgeon" type="Node3D"]
+script = ExtResource("1_o3m6q")
 
-[node name="Mesh" parent="." instance=ExtResource("1_nthv8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0, 0)
+[node name="Area3D" type="Area3D" parent="."]
+monitorable = false
 
-[node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.332309, -0.94317, 0, 0.94317, 0.332309, 0, 0, 0, 1, -0.00831691, 0.0847621, 0.00278354)
-shape = SubResource("CapsuleShape3D_gibri")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.266481, 0.96384, 0, -0.96384, 0.266481, 0, 0, 0, 1, 0.0100919, 0.0932795, 0)
+shape = SubResource("CapsuleShape3D_c2ohb")
+
+[node name="pidgeon" parent="." instance=ExtResource("1_nthv8")]
+transform = Transform3D(-0.999964, 0, -0.00842982, 0, 1, 0, 0.00842982, 0, -0.999964, 0.0775538, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

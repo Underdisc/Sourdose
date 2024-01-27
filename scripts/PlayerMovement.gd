@@ -34,8 +34,6 @@ func _physics_process(delta):
 	position += (velocity * delta)
 	
 	var dist_since_last_block_spawn = abs(position.z - z_at_last_need_new_block)
-	var block = block_scene.instantiate()
-	var spawn_area = block.get_node("PidgeonSpawn").get_node("Area")
 	if (dist_since_last_block_spawn > block_size):
 		need_new_block.emit()
 		z_at_last_need_new_block -= block_size
