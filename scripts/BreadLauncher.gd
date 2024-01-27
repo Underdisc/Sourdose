@@ -6,6 +6,8 @@ var model_scene: PackedScene = preload("res://scenes/Bread.tscn")
 # Speed at which the model is shot
 var shoot_speed: float = 10.0
 
+signal thrown
+
 func _ready():
 	pass
 
@@ -26,7 +28,8 @@ func shoot_model() -> void:
 	# Set it to start at the player's location
 	model_instance.global_transform.origin = player_node.global_transform.origin
 
-
+	# Emit the "thrown" signal when the bread is generated
+	thrown.emit()
 	
 	# Apply an initial forward force or velocity
 	if model_instance is RigidBody3D:

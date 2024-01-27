@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5klc6c3w8vkx"]
+
+[ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
+
+[node name="UIinGame" type="Control" node_paths=PackedStringArray("gameText")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -7.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_3rr05")
+gameText = NodePath("GameText")
+
+[node name="GameText" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 1
+layout_mode = 2
+offset_left = 58.6667
+offset_top = 338.667
+offset_right = 243.667
+offset_bottom = 438.667
+size_flags_stretch_ratio = 0.55
+text = "100/100"
+fit_content = true
+tab_size = 3

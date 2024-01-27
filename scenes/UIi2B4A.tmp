@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5klc6c3w8vkx"]
+
+[ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
+
+[node name="UIinGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 16.0
+offset_right = -6.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rr05")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 462.0
+offset_right = 291.0
+offset_bottom = 629.0
+scale = Vector2(1.5, 1.5)
+text = "Score:
+Bread:"
+fit_content = true
+tab_size = 3
