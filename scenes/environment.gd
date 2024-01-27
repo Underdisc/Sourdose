@@ -10,8 +10,8 @@ func _ready():
 	noise.noise_type = FastNoiseLite.NoiseType.TYPE_SIMPLEX_SMOOTH
 	noise.seed = randi()
 	noise.fractal_octaves = 4
-	noise.frequency = 1.0 / 10.0
-	$BlockTimer.start(50)
+	noise.frequency = 1.0 / 3.0
+	$BlockTimer.start(1)
 	spawn_block()
 
 func _on_block_timer_timeout():
@@ -40,13 +40,14 @@ func spawn_pidgeons(block):
 		for z in range(0, floor(area_size.z * frequency)):
 			var offset = Vector2(float(x) / frequency, -float(z) / frequency)
 			var possible_spawn = scan_start + offset
-			var sample = noise.get_noise_2dv(possible_spawn)
+			var sample = noise.get_noise_2dv(possible_spawn) * 0.7
 			var bias = 0.2
 			if sample + randf() * bias > 0:
 				spawn_pidgeon(possible_spawn)
 
 func spawn_pidgeon(spawn_position):
 	var pidgeon = pidgeon_scene.instantiate()
-	pidgeon.position = Vector3(spawn_position.x, 0, spawn_position.y)
+	var offset = Vector3(randf_range(-0.05, 0.05),0, randf_range(-0.05, 0.05))
+	pidgeon.position = Vector3(spawn_position.x, 0, spawn_position.y) + offset
 	pidgeon.rotation.y = randf_range(-PI, PI)
 	add_child(pidgeon)
