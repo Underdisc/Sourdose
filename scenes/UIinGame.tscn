@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5klc6c3w8vkx"]
+[gd_scene load_steps=8 format=3 uid="uid://c5klc6c3w8vkx"]
 
 [ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
 [ext_resource type="Texture2D" uid="uid://cfjwf15l7t3ep" path="res://assets/textures_hud/bread_icon.png" id="2_hsmjb"]
 [ext_resource type="Texture2D" uid="uid://cyvv7phevrnwm" path="res://assets/textures-menu/button-bg-small.png" id="3_o3mbx"]
+[ext_resource type="Script" path="res://scenes/HandsAnimation.gd" id="4_wx0r8"]
+[ext_resource type="Texture2D" uid="uid://ie280qnuup40" path="res://assets/textures_hud/player01.png" id="5_rqnki"]
+[ext_resource type="Texture2D" uid="uid://dda8x6vy1wk7p" path="res://assets/textures_hud/player02.png" id="6_fej1w"]
+[ext_resource type="Texture2D" uid="uid://cbwd8yjyqdb7n" path="res://assets/textures_hud/player03.png" id="7_lqk6o"]
 
 [node name="UIinGame" type="Control" node_paths=PackedStringArray("gameText")]
 layout_mode = 3
@@ -70,3 +74,36 @@ offset_right = 1031.33
 offset_bottom = 777.667
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_o3mbx")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_wx0r8")
+
+[node name="Hands1" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 5570.0
+offset_bottom = 2774.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_rqnki")
+
+[node name="Hands2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 5570.0
+offset_bottom = 2774.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_fej1w")
+
+[node name="Hands3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 5570.0
+offset_bottom = 2774.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_lqk6o")
