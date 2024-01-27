@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ofly51karrlf"]
+
+[ext_resource type="PackedScene" uid="uid://c4ceeqkvreyxk" path="res://assets/models/bread_sandwich.glb" id="1_uf0m4"]
+
+[node name="BreadSandwich" type="Node3D"]
+
+[node name="bread_sandwich2" parent="." instance=ExtResource("1_uf0m4")]

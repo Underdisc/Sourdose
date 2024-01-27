@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4mjt1c3xks0x"]
+
+[ext_resource type="PackedScene" uid="uid://c2gxah46j872o" path="res://assets/models/bread_small.glb" id="1_7tgew"]
+
+[node name="BreadSmall" type="Node3D"]
+
+[node name="bread_small2" parent="." instance=ExtResource("1_7tgew")]
