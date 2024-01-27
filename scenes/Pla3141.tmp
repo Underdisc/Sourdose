@@ -1,31 +1,30 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=4 format=3 uid="uid://u2iv7vtyj28"]
-=======
 [gd_scene load_steps=7 format=3 uid="uid://behv3ihuq7egp"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
-[ext_resource type="PackedScene" uid="uid://besjly1jix0sj" path="res://scenes/block.tscn" id="2_45ywl"]
 [ext_resource type="Script" path="res://scripts/BreadLauncher.gd" id="2_o4tks"]
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="3_qoq1j"]
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_x5oyd")
-block_scene = ExtResource("2_45ywl")
+[sub_resource type="BoxMesh" id="BoxMesh_bhldd"]
 
-[node name="BreadLauncher" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.186159)
+[sub_resource type="BoxShape3D" id="BoxShape3D_u522c"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wlhgm"]
+
+[node name="Player" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+script = ExtResource("1_x5oyd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_bhldd")
+
+[node name="BreadLauncher" type="Node3D" parent="Node3D"]
 script = ExtResource("2_o4tks")
 
-[node name="Pivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.875397, 0.483405, 0, -0.483405, 0.875397, 0, -0.467225, -1.21623)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.878734, 0.477312, 0, -0.477312, 0.878734, 0, 4.59059, 5.80028)
 
-<<<<<<< Updated upstream
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.981413, 0.191905, 0, -0.191905, 0.981413, 0, 0.275375, 1.79537)
-current = true
-fov = 72.9
-=======
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -40,6 +39,3 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -1, 0)
 mesh = SubResource("PlaneMesh_wlhgm")
 
 [node name="UIinGame" parent="." instance=ExtResource("3_qoq1j")]
-
-[connection signal="thrown" from="Node3D/BreadLauncher" to="UIinGame" method="_on_bread_thrown"]
->>>>>>> Stashed changes
