@@ -16,13 +16,15 @@ func _on_area_3d_body_entered(body):
 	anim_player.play("pidgeon-a-fluttering", -1, speed, false)
 	anim_player.advance(0)
 
-func _ready():
-	var speed = randf_range(1, 3)
-	anim_player.play("pidgeon-idle", -1, speed, false)
-	anim_player.seek(randi() % 1)
-
 func _process(delta):
 	position += velocity * delta
 
-func _on_visible_on_screen_notifier_3d_screen_exited():
-	queue_free()
+func moved_onto_block():
+	var speed = randf_range(1, 3)
+	anim_player.play("pidgeon-idle", -1, speed, false)
+	anim_player.seek(randi() % 1)
+	velocity = Vector3.ZERO
+	rotation.x = 0
+	rotation.y = randf_range(-PI, PI)
+	rotation.z = 0
+
