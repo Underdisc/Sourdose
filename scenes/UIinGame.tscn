@@ -74,34 +74,37 @@ offset_bottom = 128.275
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -494.0
+offset_top = -561.333
+offset_right = -454.0
+offset_bottom = -521.333
+scale = Vector2(2.281, 2.161)
 script = ExtResource("4_wx0r8")
 
 [node name="Hands1" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 223.0
-offset_top = 174.0
-offset_right = 5570.0
-offset_bottom = 2774.0
+offset_left = 49.3333
+offset_top = 224.667
+offset_right = 5396.33
+offset_bottom = 2824.67
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rqnki")
 
 [node name="Hands2" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 223.0
-offset_top = 174.0
-offset_right = 5570.0
-offset_bottom = 2774.0
+offset_left = 49.3333
+offset_top = 224.667
+offset_right = 5396.33
+offset_bottom = 2824.67
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_fej1w")
 
 [node name="Hands3" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 223.0
-offset_top = 174.0
-offset_right = 5570.0
-offset_bottom = 2774.0
+offset_left = 49.3333
+offset_top = 224.667
+offset_right = 5396.33
+offset_bottom = 2824.67
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_lqk6o")
 
@@ -144,3 +147,5 @@ offset_right = 1031.33
 offset_bottom = 847.667
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_o3mbx")
+
+[connection signal="bread_thrown" from="." to="Control" method="_on_start_animation"]
