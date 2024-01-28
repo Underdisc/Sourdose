@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6lnmdkvpm0pn"]
+[gd_scene load_steps=6 format=3 uid="uid://c6lnmdkvpm0pn"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
 [ext_resource type="PackedScene" uid="uid://cjqc8n48hlomt" path="res://scenes/block.tscn" id="2_45ywl"]
 [ext_resource type="Script" path="res://scripts/BreadLauncher.gd" id="2_o4tks"]
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
+[ext_resource type="PackedScene" uid="uid://cs2acvhaimeb7" path="res://scenes/skytexture_dir_light.tscn" id="5_ccrqh"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_x5oyd")
@@ -22,5 +23,7 @@ current = true
 fov = 72.9
 
 [node name="UIinGame" parent="." instance=ExtResource("4_31v44")]
+
+[node name="Node" parent="." instance=ExtResource("5_ccrqh")]
 
 [connection signal="thrown" from="BreadLauncher" to="UIinGame" method="_on_bread_thrown"]

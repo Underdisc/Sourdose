@@ -11,6 +11,7 @@ sky_material = SubResource("ProceduralSkyMaterial_j0nl6")
 
 [sub_resource type="Environment" id="Environment_7ccpq"]
 background_mode = 2
+background_energy_multiplier = 0.2
 sky = SubResource("Sky_pdgau")
 fog_light_color = Color(0.533333, 0.556863, 0.627451, 1)
 fog_light_energy = 1.29
@@ -19,8 +20,8 @@ volumetric_fog_density = 0.0
 adjustment_brightness = 1.2
 
 [sub_resource type="SphereMesh" id="SphereMesh_lr2ae"]
-radius = 0.003
-height = 0.99
+radius = 0.005
+height = 1.5
 
 [sub_resource type="FogMaterial" id="FogMaterial_4odj4"]
 density = 0.5
@@ -32,16 +33,16 @@ edge_fade = 0.757858
 environment = SubResource("Environment_7ccpq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.943862, -0.0601981, 0.324808, -0.304379, 0.223592, 0.925937, -0.128364, -0.972822, 0.192717, 0, 0, 0)
+transform = Transform3D(0.943862, -0.060198, 0.324808, -0.304379, 0.223592, 0.925937, -0.128364, -0.972822, 0.192717, 15.8352, 11.2666, -3.93273)
 light_color = Color(0.921569, 0.878431, 0.85098, 1)
-light_energy = 1.593
+light_energy = 0.6
 shadow_enabled = true
 directional_shadow_mode = 1
 directional_shadow_fade_start = 0.125
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1473, 10.2214, 0)
-amount = 111
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.62074, -3.0188)
+amount = 200
 lifetime = 2.0
 speed_scale = 2.8
 mesh = SubResource("SphereMesh_lr2ae")
@@ -49,6 +50,6 @@ emission_shape = 3
 emission_box_extents = Vector3(8, 2.9, 8)
 
 [node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0083, 4.32026, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.21352, -18.1717)
 size = Vector3(25, 16, 16)
 material = SubResource("FogMaterial_4odj4")
