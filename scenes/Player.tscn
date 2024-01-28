@@ -1,10 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6lnmdkvpm0pn"]
+[gd_scene load_steps=10 format=3 uid="uid://c6lnmdkvpm0pn"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
 [ext_resource type="PackedScene" uid="uid://cjqc8n48hlomt" path="res://scenes/block.tscn" id="2_45ywl"]
 [ext_resource type="Script" path="res://scripts/BreadLauncher.gd" id="2_o4tks"]
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
-[ext_resource type="PackedScene" uid="uid://cs2acvhaimeb7" path="res://scenes/skytexture_dir_light.tscn" id="5_ccrqh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ou4mm"]
+sky_top_color = Color(0.607843, 0.568627, 0.796078, 1)
+sky_horizon_color = Color(0.627451, 0.654902, 0.709804, 1)
+ground_bottom_color = Color(0.196078, 0.164706, 0.129412, 1)
+ground_horizon_color = Color(0.623529, 0.658824, 0.690196, 1)
+
+[sub_resource type="Sky" id="Sky_pdgau"]
+sky_material = SubResource("ProceduralSkyMaterial_ou4mm")
+
+[sub_resource type="Environment" id="Environment_wss0y"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_pdgau")
+fog_light_color = Color(0.533333, 0.556863, 0.627451, 1)
+fog_light_energy = 1.29
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+adjustment_brightness = 1.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_v6jgi"]
+radius = 0.005
+height = 1.5
+
+[sub_resource type="FogMaterial" id="FogMaterial_53vrh"]
+density = 0.5
+edge_fade = 0.757858
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_x5oyd")
@@ -24,6 +50,29 @@ fov = 72.9
 
 [node name="UIinGame" parent="." instance=ExtResource("4_31v44")]
 
-[node name="Node" parent="." instance=ExtResource("5_ccrqh")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wss0y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.943862, -0.060198, 0.324808, -0.304379, 0.223592, 0.925937, -0.128364, -0.972822, 0.192717, 15.8352, 11.2666, -3.93273)
+light_color = Color(0.921569, 0.878431, 0.85098, 1)
+light_energy = 0.6
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_fade_start = 0.125
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.62074, -3.0188)
+amount = 200
+lifetime = 2.0
+speed_scale = 2.8
+mesh = SubResource("SphereMesh_v6jgi")
+emission_shape = 3
+emission_box_extents = Vector3(8, 2.9, 8)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.21352, -21.2972)
+size = Vector3(25, 16, 16)
+material = SubResource("FogMaterial_53vrh")
 
 [connection signal="thrown" from="BreadLauncher" to="UIinGame" method="_on_bread_thrown"]
