@@ -5,6 +5,10 @@ var velocity = Vector3.ZERO
 
 @onready var anim_player : AnimationPlayer = $"pidgeon/AnimationPlayer"
 
+func _ready():
+	var ui_node = get_parent().get_node("Player").get_node("UIinGame")
+	pidgeon_hit.connect(ui_node._on_pidgeon_hit)
+
 func _on_area_3d_body_entered(body):
 	pidgeon_hit.emit()
 	var sound_select = randi_range(0, 1)

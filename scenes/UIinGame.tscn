@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5klc6c3w8vkx"]
+[gd_scene load_steps=9 format=3 uid="uid://c5klc6c3w8vkx"]
 
 [ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
 [ext_resource type="Texture2D" uid="uid://cfjwf15l7t3ep" path="res://assets/textures_hud/bread_icon.png" id="2_hsmjb"]
@@ -7,15 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://ie280qnuup40" path="res://assets/textures_hud/player01.png" id="5_rqnki"]
 [ext_resource type="Texture2D" uid="uid://dda8x6vy1wk7p" path="res://assets/textures_hud/player02.png" id="6_fej1w"]
 [ext_resource type="Texture2D" uid="uid://cbwd8yjyqdb7n" path="res://assets/textures_hud/player03.png" id="7_lqk6o"]
+[ext_resource type="Texture2D" uid="uid://oqktyhx5r2kk" path="res://assets/textures_hud/pidgeon_icon.png" id="8_4d8qn"]
 
 [node name="UIinGame" type="Control" node_paths=PackedStringArray("gameText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 2.0
-offset_bottom = 9.0
+offset_left = 20.0
+offset_top = -9.0
+offset_right = 17.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -24,75 +26,121 @@ size_flags_stretch_ratio = 0.0
 script = ExtResource("1_3rr05")
 gameText = NodePath("GameText")
 
+[node name="HitCount" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 128.667
+offset_top = 356.0
+offset_right = 252.667
+offset_bottom = 407.0
+text = "0
+"
+
+[node name="TextureRect3" type="TextureRect" parent="HitCount"]
+z_as_relative = false
+offset_left = -20.6667
+offset_top = -10.0
+offset_right = 899.33
+offset_bottom = 443.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_o3mbx")
+
 [node name="GameText" type="RichTextLabel" parent="."]
 z_index = 1
 custom_minimum_size = Vector2(100, 100)
 layout_direction = 1
 layout_mode = 2
-offset_left = 115.0
-offset_top = 411.0
-offset_right = 300.0
-offset_bottom = 511.0
+offset_left = 128.0
+offset_top = 404.667
+offset_right = 313.0
+offset_bottom = 504.667
 size_flags_stretch_ratio = 0.55
 text = "100/100"
 fit_content = true
 tab_size = 3
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 1
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -342.333
-offset_right = 358.0
-offset_bottom = -25.3334
-grow_vertical = 0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_hsmjb")
-stretch_mode = 2
+anchors_preset = -1
+anchor_left = 0.155
+anchor_top = 0.195
+anchor_right = 0.155
+anchor_bottom = 0.195
+offset_left = -178.095
+offset_top = -127.725
+offset_right = 77.905
+offset_bottom = 128.275
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 400.0
-offset_right = 1020.0
-offset_bottom = 853.0
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_o3mbx")
-
-[node name="Control3" type="Control" parent="."]
-layout_mode = 3
+[node name="Control" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_wx0r8")
 
-[node name="Hands1" type="TextureRect" parent="Control3"]
+[node name="Hands1" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = -320.667
-offset_top = -40.6667
-offset_right = 5026.33
-offset_bottom = 2559.33
-scale = Vector2(0.2, 0.2)
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 5570.0
+offset_bottom = 2774.0
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rqnki")
 
-[node name="Hands2" type="TextureRect" parent="Control3"]
+[node name="Hands2" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = -320.667
-offset_top = -40.6667
-offset_right = 5026.33
-offset_bottom = 2559.33
-scale = Vector2(0.2, 0.2)
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 5570.0
+offset_bottom = 2774.0
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_fej1w")
 
-[node name="Hands3" type="TextureRect" parent="Control3"]
+[node name="Hands3" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = -320.667
-offset_top = -40.6667
-offset_right = 5026.33
-offset_bottom = 2559.33
-scale = Vector2(0.2, 0.2)
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 5570.0
+offset_bottom = 2774.0
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_lqk6o")
 
-[connection signal="bread_thrown" from="." to="Control3" method="_on_start_animation"]
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -347.0
+offset_right = 371.0
+offset_bottom = -30.0003
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_hsmjb")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -390.333
+offset_right = 340.0
+offset_bottom = -112.333
+grow_vertical = 0
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("8_4d8qn")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 111.333
+offset_top = 394.667
+offset_right = 1031.33
+offset_bottom = 847.667
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_o3mbx")
