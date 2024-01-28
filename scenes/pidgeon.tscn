@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://s2rbv612iiue"]
+[gd_scene load_steps=6 format=3 uid="uid://s2rbv612iiue"]
 
 [ext_resource type="PackedScene" uid="uid://rn202oqbtsj6" path="res://assets/models/pidgeon.glb" id="1_nthv8"]
 [ext_resource type="Script" path="res://scripts/pidgeon.gd" id="1_o3m6q"]
+[ext_resource type="AudioStream" uid="uid://b6ntfso4j8s24" path="res://assets/sounds-music/pidgeon_hit1.mp3" id="3_snc5t"]
+[ext_resource type="AudioStream" uid="uid://uyana53vrxou" path="res://assets/sounds-music/pidgeon_hit2.mp3" id="4_k8kxx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c2ohb"]
 radius = 0.0739958
@@ -32,6 +34,19 @@ bones/6/scale = Vector3(1.09652, 1.09652, 1.09652)
 bones/7/rotation = Quaternion(0.993952, 0.0780966, 0.0759899, -0.0136437)
 bones/8/rotation = Quaternion(0.993952, 0.0780966, 0.0759899, -0.0136437)
 bones/9/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="1" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145126, 0)
+stream = ExtResource("3_snc5t")
+volume_db = -40.0
+max_db = 2.0
+
+[node name="2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("4_k8kxx")
+volume_db = -31.616
+max_db = 2.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 

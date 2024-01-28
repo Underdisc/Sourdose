@@ -1,7 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://erkpliln36bu"]
+[gd_scene load_steps=2 format=3 uid="uid://d2cbhd1hnuaio"]
 
 [ext_resource type="AudioStream" uid="uid://bu36gf2if7uar" path="res://assets/sounds-music/bgmusic_oma-real.wav" id="1_u8arv"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_u8arv")
+volume_db = -15.874
 autoplay = true
