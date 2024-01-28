@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6lnmdkvpm0pn"]
+[gd_scene load_steps=14 format=3 uid="uid://c6lnmdkvpm0pn"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
 [ext_resource type="PackedScene" uid="uid://cjqc8n48hlomt" path="res://scenes/block.tscn" id="2_45ywl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
 [ext_resource type="PackedScene" uid="uid://bqulmgpo1jp37" path="res://scenes/breads/brötchen.tscn" id="5_nm4yx"]
 [ext_resource type="PackedScene" uid="uid://nbtxwp8utk81" path="res://scenes/breads/bread_sandwich.tscn" id="6_nb1r5"]
+[ext_resource type="PackedScene" uid="uid://dhf8nyi5p8an1" path="res://scenes/banners.tscn" id="8_xp26u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ou4mm"]
 sky_top_color = Color(0.607843, 0.568627, 0.796078, 1)
@@ -78,5 +79,7 @@ emission_box_extents = Vector3(8, 2.9, 8)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.21352, -21.2972)
 size = Vector3(25, 16, 16)
 material = SubResource("FogMaterial_53vrh")
+
+[node name="Banners" parent="." instance=ExtResource("8_xp26u")]
 
 [connection signal="thrown" from="BreadLauncher" to="UIinGame" method="_on_bread_thrown"]

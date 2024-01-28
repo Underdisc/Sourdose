@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://fyrhd3rhndxn"]
+
+[ext_resource type="Texture2D" uid="uid://d1a5d831gsqx6" path="res://assets/textures-menu/button-bg-big.png" id="1_jwy6d"]
+[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_lr56i"]
+[ext_resource type="Texture2D" uid="uid://blndwe6605kb3" path="res://assets/textures-menu/bg-menu.png" id="1_si8ps"]
+[ext_resource type="Texture2D" uid="uid://cyvv7phevrnwm" path="res://assets/textures-menu/button-bg-small.png" id="2_myeox"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1sbk"]
+texture = ExtResource("1_jwy6d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2li50"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56n00"]
+texture = ExtResource("2_myeox")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tyyto"]
+texture = ExtResource("1_jwy6d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lcxvl"]
+texture = ExtResource("2_myeox")
+
+[sub_resource type="Theme" id="Theme_asirp"]
+Button/font_sizes/font_size = 40
+Button/styles/disabled = SubResource("StyleBoxTexture_r1sbk")
+Button/styles/focus = SubResource("StyleBoxTexture_2li50")
+Button/styles/hover = SubResource("StyleBoxTexture_56n00")
+Button/styles/normal = SubResource("StyleBoxTexture_tyyto")
+Button/styles/pressed = SubResource("StyleBoxTexture_lcxvl")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_asirp")
+script = ExtResource("1_lr56i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_si8ps")
+expand_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 84.0
+offset_right = 757.0
+offset_bottom = 208.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
