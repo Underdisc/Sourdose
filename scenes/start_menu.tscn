@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://fyrhd3rhndxn"]
+[gd_scene load_steps=13 format=3 uid="uid://fyrhd3rhndxn"]
 
 [ext_resource type="Texture2D" uid="uid://d1a5d831gsqx6" path="res://assets/textures-menu/button-bg-big.png" id="1_jwy6d"]
 [ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_lr56i"]
 [ext_resource type="Texture2D" uid="uid://blndwe6605kb3" path="res://assets/textures-menu/bg-menu.png" id="1_si8ps"]
 [ext_resource type="Texture2D" uid="uid://cyvv7phevrnwm" path="res://assets/textures-menu/button-bg-small.png" id="2_myeox"]
+[ext_resource type="PackedScene" uid="uid://dkorbi82k563w" path="res://scenes/environment.tscn" id="4_j5d3q"]
+[ext_resource type="AudioStream" uid="uid://bp53pyblhua1b" path="res://assets/sounds-music/main_menui.wav" id="5_hcefg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1sbk"]
 texture = ExtResource("1_jwy6d")
@@ -36,6 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_asirp")
 script = ExtResource("1_lr56i")
+environment_scene = ExtResource("4_j5d3q")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -51,5 +54,10 @@ offset_top = 84.0
 offset_right = 757.0
 offset_bottom = 208.0
 text = "Start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hcefg")
+volume_db = -35.468
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
