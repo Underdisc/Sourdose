@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhf8nyi5p8an1"]
+
+[ext_resource type="Texture2D" uid="uid://d2713av0ft2as" path="res://assets/textures_banner/banner_cars_warranty.png" id="1_rhg5w"]
+[ext_resource type="Texture2D" uid="uid://jdf8els2dxoj" path="res://assets/textures_banner/banner_cougar.png" id="3_ki4b4"]
+[ext_resource type="Texture2D" uid="uid://5wdygv755qdc" path="res://assets/textures_banner/banner_herbert_ghost.png" id="4_j13sa"]
+[ext_resource type="Texture2D" uid="uid://bi3riklgupc7y" path="res://assets/textures_banner/banner_imprisoned.png" id="5_5p0b8"]
+[ext_resource type="Texture2D" uid="uid://167lgw27e8g0" path="res://assets/textures_banner/banner_personality_test.png" id="6_pjxod"]
+[ext_resource type="Script" path="res://scripts/show_banners.gd" id="7_ctcvk"]
+
+[node name="Banners" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_ctcvk")
+
+[node name="banner1" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 113.0
+offset_top = 508.0
+offset_right = 2139.0
+offset_bottom = 2008.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rhg5w")
+stretch_mode = 2
+
+[node name="banner2" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 820.0
+offset_top = 373.0
+offset_right = 2389.0
+offset_bottom = 1873.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ki4b4")
+stretch_mode = 2
+
+[node name="banner3" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 237.0
+offset_top = 41.0
+offset_right = 2043.0
+offset_bottom = 1541.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_j13sa")
+stretch_mode = 2
+
+[node name="banner4" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 911.0
+offset_top = 74.0
+offset_right = 2411.0
+offset_bottom = 1574.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_5p0b8")
+stretch_mode = 2
+
+[node name="banner5" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 82.0
+offset_top = 221.0
+offset_right = 2130.0
+offset_bottom = 1721.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_pjxod")
+stretch_mode = 2
+
+[node name="BannerCooldown Timer" type="Timer" parent="Control"]
+wait_time = 5.0
+one_shot = true
