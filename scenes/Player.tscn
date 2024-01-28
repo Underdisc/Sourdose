@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6lnmdkvpm0pn"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
-[ext_resource type="PackedScene" uid="uid://besjly1jix0sj" path="res://scenes/block.tscn" id="2_45ywl"]
+[ext_resource type="PackedScene" uid="uid://cjqc8n48hlomt" path="res://scenes/block.tscn" id="2_45ywl"]
 [ext_resource type="Script" path="res://scripts/BreadLauncher.gd" id="2_o4tks"]
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
 
