@@ -7,6 +7,11 @@ var velocity = Vector3.ZERO
 
 func _on_area_3d_body_entered(body):
 	pidgeon_hit.emit()
+	var sound_select = randi_range(0, 1)
+	if sound_select == 0:
+		$Sounds.get_node("1").play()
+	else:
+		$Sounds.get_node("2").play()
 	velocity = Vector3(randf_range(-1, 1), randf_range(0, 1), randf_range(-1,1))
 	velocity = velocity.normalized()
 	var quat = Quaternion(Vector3(1, 0, 0), velocity)
