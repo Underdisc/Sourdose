@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://nbtxwp8utk81"]
 
 [ext_resource type="Script" path="res://scenes/BreadMovement.gd" id="1_8ka6x"]
-[ext_resource type="PackedScene" path="res://scenes/bread_sandwich.tscn" id="1_cbon6"]
+[ext_resource type="PackedScene" uid="uid://ofly51karrlf" path="res://scenes/bread_sandwich.tscn" id="1_cbon6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_djxtt"]
 radius = 0.217304
@@ -16,3 +16,8 @@ shape = SubResource("CapsuleShape3D_djxtt")
 
 [node name="BreadSandwich" parent="." instance=ExtResource("1_cbon6")]
 transform = Transform3D(-8.08661e-09, 0, 0.185, 0, 0.185, 0, -0.185, 0, -8.08661e-09, 0, 0, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.397487, -0.302525, -0.336807, 0.794974, 0.605051, 0.673614)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

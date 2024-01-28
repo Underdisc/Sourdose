@@ -48,3 +48,6 @@ func _physics_process(delta: float) -> void:
 		max_distance_reached = true  # Set the flag to true to prevent repeated execution
 
 		# You could also consider deactivating or modifying the physics properties of the object
+
+func _on_visible_on_screen_notifier_3d_screen_exited():
+	queue_free()
