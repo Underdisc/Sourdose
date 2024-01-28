@@ -20,10 +20,10 @@ script = ExtResource("7_ctcvk")
 
 [node name="banner1" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 148.0
-offset_top = 55.0
-offset_right = 2200.0
-offset_bottom = 1325.0
+offset_left = 68.0
+offset_top = 47.0
+offset_right = 3153.0
+offset_bottom = 772.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_rhg5w")
 
@@ -38,10 +38,10 @@ texture = ExtResource("3_ki4b4")
 
 [node name="banner3" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 59.0
-offset_top = 66.0
-offset_right = 2913.0
-offset_bottom = 2436.0
+offset_left = 43.0
+offset_top = 55.0
+offset_right = 3203.0
+offset_bottom = 2640.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_j13sa")
 

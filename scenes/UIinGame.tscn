@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
 [ext_resource type="Texture2D" uid="uid://cfjwf15l7t3ep" path="res://assets/textures_hud/bread_icon.png" id="2_hsmjb"]
-[ext_resource type="Texture2D" uid="uid://cyvv7phevrnwm" path="res://assets/textures-menu/button-bg-small.png" id="3_o3mbx"]
+[ext_resource type="Texture2D" uid="uid://cad24annhqe6u" path="res://assets/textures_hud/counter_bg.png" id="2_lwh0n"]
 [ext_resource type="Script" path="res://scenes/HandsAnimation.gd" id="4_wx0r8"]
 [ext_resource type="Texture2D" uid="uid://ie280qnuup40" path="res://assets/textures_hud/player01.png" id="5_rqnki"]
 [ext_resource type="Texture2D" uid="uid://dda8x6vy1wk7p" path="res://assets/textures_hud/player02.png" id="6_fej1w"]
@@ -39,12 +39,12 @@ text = "0
 [node name="TextureRect3" type="TextureRect" parent="HitCount"]
 z_as_relative = false
 layout_mode = 0
-offset_left = -20.6667
-offset_top = -10.0
-offset_right = 899.33
-offset_bottom = 443.0
+offset_left = -24.0003
+offset_top = -13.3333
+offset_right = 895.996
+offset_bottom = 498.667
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_o3mbx")
+texture = ExtResource("2_lwh0n")
 
 [node name="GameText" type="RichTextLabel" parent="."]
 z_index = 1
@@ -81,7 +81,6 @@ offset_right = -454.0
 offset_bottom = -521.333
 scale = Vector2(2.281, 2.161)
 script = ExtResource("4_wx0r8")
-interval = 0.2
 
 [node name="Hands1" type="TextureRect" parent="Control"]
 layout_mode = 0
@@ -143,11 +142,11 @@ stretch_mode = 2
 [node name="TextureRect2" type="TextureRect" parent="."]
 z_index = -1
 layout_mode = 0
-offset_left = 111.333
-offset_top = 394.667
-offset_right = 1031.33
-offset_bottom = 847.667
+offset_left = 112.0
+offset_top = 390.667
+offset_right = 1032.0
+offset_bottom = 902.667
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_o3mbx")
+texture = ExtResource("2_lwh0n")
 
 [connection signal="bread_thrown" from="." to="Control" method="_on_start_animation"]
