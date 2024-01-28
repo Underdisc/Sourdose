@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5klc6c3w8vkx"]
+[gd_scene load_steps=10 format=3 uid="uid://c5klc6c3w8vkx"]
 
 [ext_resource type="Script" path="res://scenes/UIinGame.gd" id="1_3rr05"]
 [ext_resource type="Texture2D" uid="uid://cfjwf15l7t3ep" path="res://assets/textures_hud/bread_icon.png" id="2_hsmjb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dda8x6vy1wk7p" path="res://assets/textures_hud/player02.png" id="6_fej1w"]
 [ext_resource type="Texture2D" uid="uid://cbwd8yjyqdb7n" path="res://assets/textures_hud/player03.png" id="7_lqk6o"]
 [ext_resource type="Texture2D" uid="uid://oqktyhx5r2kk" path="res://assets/textures_hud/pidgeon_icon.png" id="8_4d8qn"]
+[ext_resource type="PackedScene" uid="uid://dhf8nyi5p8an1" path="res://scenes/banners.tscn" id="9_rvfo1"]
 
 [node name="UIinGame" type="Control" node_paths=PackedStringArray("gameText")]
 layout_mode = 3
@@ -149,5 +150,7 @@ offset_right = 1031.33
 offset_bottom = 847.667
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_o3mbx")
+
+[node name="Banners" parent="." instance=ExtResource("9_rvfo1")]
 
 [connection signal="bread_thrown" from="." to="Control" method="_on_start_animation"]
