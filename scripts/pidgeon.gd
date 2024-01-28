@@ -30,7 +30,11 @@ func _process(delta):
 
 func moved_onto_block():
 	var speed = randf_range(1, 3)
-	anim_player.play("pidgeon-idle", -1, speed, false)
+	var select = randi_range(0, 1)
+	if select == 0:
+		anim_player.play("pidgeon-idle", -1, speed, false)
+	else:
+		anim_player.play("pidgeon-a-eating", -1, speed, false)
 	anim_player.seek(randi() % 1)
 	velocity = Vector3.ZERO
 	rotation.x = 0
