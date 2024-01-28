@@ -1,5 +1,7 @@
 extends Control
 
+@export var env_scene: PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Initially disable all TextureRect children
@@ -34,3 +36,7 @@ func enable_random_texture_rect():
 
 	# Make the selected TextureRect visible
 	selected_texture_rect.visible = true
+
+
+func _on_retry_pressed():
+	get_tree().change_scene_to_packed(env_scene)

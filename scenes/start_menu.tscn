@@ -59,7 +59,7 @@ offset_bottom = 368.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_hcefg")
-volume_db = -35.468
+volume_db = -18.0
 autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
