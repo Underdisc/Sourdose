@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
 [ext_resource type="PackedScene" uid="uid://bqulmgpo1jp37" path="res://scenes/breads/brötchen.tscn" id="5_nm4yx"]
 [ext_resource type="PackedScene" uid="uid://nbtxwp8utk81" path="res://scenes/breads/bread_sandwich.tscn" id="6_nb1r5"]
-[ext_resource type="PackedScene" uid="uid://dhf8nyi5p8an1" path="res://scenes/banners.tscn" id="8_xp26u"]
+[ext_resource type="PackedScene" path="res://scenes/banners.tscn" id="8_xp26u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ou4mm"]
 sky_top_color = Color(0.607843, 0.568627, 0.796078, 1)

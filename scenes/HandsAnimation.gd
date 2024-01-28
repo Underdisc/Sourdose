@@ -1,7 +1,7 @@
 extends Control
 
 # Time interval variable visible in the inspector
-@export var interval: float = 0.5
+@export var interval: float = 0.1
 
 # Current index of the child being rotated
 var current_child_index = 0
