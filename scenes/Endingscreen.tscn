@@ -17,15 +17,8 @@ script = ExtResource("1_pmomn")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 9.0
-offset_right = 2571.0
-offset_bottom = 1449.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 3916.0
+offset_bottom = 2203.0
 scale = Vector2(0.33, 0.33)
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -33,10 +26,8 @@ mouse_filter = 0
 texture = ExtResource("2_7di1v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 9.00003
-offset_top = 8.0
-offset_right = 3849.0
-offset_bottom = 2168.0
+layout_mode = 1
+offset_right = 3927.0
+offset_bottom = 2209.0
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("3_1b4w2")
