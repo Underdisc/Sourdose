@@ -107,3 +107,5 @@ offset_right = 5570.0
 offset_bottom = 2774.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_lqk6o")
+
+[connection signal="bread_thrown" from="." to="Control" method="_on_start_animation"]
