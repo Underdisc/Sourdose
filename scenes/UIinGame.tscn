@@ -38,6 +38,7 @@ text = "0
 
 [node name="TextureRect3" type="TextureRect" parent="HitCount"]
 z_as_relative = false
+layout_mode = 0
 offset_left = -20.6667
 offset_top = -10.0
 offset_right = 899.33
@@ -80,6 +81,7 @@ offset_right = -454.0
 offset_bottom = -521.333
 scale = Vector2(2.281, 2.161)
 script = ExtResource("4_wx0r8")
+interval = 0.2
 
 [node name="Hands1" type="TextureRect" parent="Control"]
 layout_mode = 0
