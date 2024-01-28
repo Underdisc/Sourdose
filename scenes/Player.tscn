@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://scripts/BreadLauncher.gd" id="2_o4tks"]
 [ext_resource type="PackedScene" uid="uid://dg8w21bm7jolu" path="res://scenes/breads/bread_box.tscn" id="4_7x1ut"]
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
-[ext_resource type="PackedScene" uid="uid://bqulmgpo1jp37" path="res://scenes/breads/brötchen.tscn" id="5_nm4yx"]
+[ext_resource type="PackedScene" uid="uid://bqulmgpo1jp37" path="res://scenes/breads/brotchen.tscn" id="5_nm4yx"]
 [ext_resource type="PackedScene" uid="uid://nbtxwp8utk81" path="res://scenes/breads/bread_sandwich.tscn" id="6_nb1r5"]
-[ext_resource type="PackedScene" path="res://scenes/banners.tscn" id="8_xp26u"]
+[ext_resource type="PackedScene" uid="uid://cbgnp25dg8wor" path="res://scenes/breads/bread_baguette.tscn" id="7_outuo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ou4mm"]
 sky_top_color = Color(0.607843, 0.568627, 0.796078, 1)
@@ -43,7 +43,7 @@ block_scene = ExtResource("2_45ywl")
 [node name="BreadLauncher" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.186159)
 script = ExtResource("2_o4tks")
-bread_meshes = Array[PackedScene]([ExtResource("4_7x1ut"), ExtResource("5_nm4yx"), ExtResource("6_nb1r5")])
+bread_meshes = Array[PackedScene]([ExtResource("4_7x1ut"), ExtResource("6_nb1r5"), ExtResource("5_nm4yx"), ExtResource("7_outuo")])
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.964096, 0.265556, 0, -0.265556, 0.964096, 0, -0.467225, -1.21623)
@@ -79,7 +79,5 @@ emission_box_extents = Vector3(8, 2.9, 8)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.21352, -21.2972)
 size = Vector3(25, 16, 16)
 material = SubResource("FogMaterial_53vrh")
-
-[node name="Banners" parent="." instance=ExtResource("8_xp26u")]
 
 [connection signal="thrown" from="BreadLauncher" to="UIinGame" method="_on_bread_thrown"]

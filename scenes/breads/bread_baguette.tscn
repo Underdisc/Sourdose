@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbgnp25dg8wor"]
+
+[ext_resource type="Script" path="res://scenes/BreadMovement.gd" id="1_hu7qk"]
+[ext_resource type="PackedScene" uid="uid://c2k3fy6benh3n" path="res://assets/models/bread_baguette.glb" id="1_t0amq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4oe43"]
+radius = 0.148403
+height = 1.42239
+
+[node name="bread_baguette" type="RigidBody3D"]
+script = ExtResource("1_hu7qk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00515556, 0.0186827, 0.00293769)
+shape = SubResource("CapsuleShape3D_4oe43")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.81811, -0.302525, -0.336807, 1.63622, 0.605051, 0.673614)
+
+[node name="bread_baguette" parent="." instance=ExtResource("1_t0amq")]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
