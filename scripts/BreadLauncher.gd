@@ -1,7 +1,7 @@
 extends Node3D
 
 # Preload the model scene
-var model_scene: PackedScene = preload("res://scenes/Bread.tscn")
+@export var bread_meshes: Array[PackedScene]
 
 # Speed at which the model is shot
 var shoot_speed: float = 10.0
@@ -17,7 +17,8 @@ func _process(delta: float) -> void:
 
 func shoot_model() -> void:
 	# Instance the model scene
-	var model_instance: Node = model_scene.instantiate()
+	var mesh_index = randi_range(0, bread_meshes.size() - 1)
+	var model_instance: Node = bread_meshes[mesh_index].instantiate()
 	
 	# Get a reference to the player node (assuming this script is attached to the player)
 	var player_node: Node3D = self  # or get_parent(), if this script is a child of the player node

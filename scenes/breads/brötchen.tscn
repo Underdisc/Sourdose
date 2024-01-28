@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqulmgpo1jp37"]
+
+[ext_resource type="PackedScene" uid="uid://c2gxah46j872o" path="res://assets/models/bread_small.glb" id="1_f6pun"]
+[ext_resource type="Script" path="res://scenes/BreadMovement.gd" id="1_wrulk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i56cy"]
+radius = 0.152661
+height = 0.412116
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_wrulk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00515556, -0.0112063, 0.00293769)
+shape = SubResource("CapsuleShape3D_i56cy")
+
+[node name="bread_small2" parent="." instance=ExtResource("1_f6pun")]
+transform = Transform3D(2.19729e-16, -5.02681e-09, 0.115, -0.115, -5.02681e-09, -1.84486e-23, 5.02681e-09, -0.115, -5.02681e-09, 0.00515556, -0.0112063, 0.00293769)
