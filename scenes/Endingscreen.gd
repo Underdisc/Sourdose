@@ -1,25 +1,14 @@
 extends Control
 
-# Export the delay variable to make it adjustable in the inspector
-@export var delay_seconds: float = 60.0
-
-# Timer
-var timer
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Initialize and configure the timer
-	timer = Timer.new()
-	timer.wait_time = delay_seconds
-	timer.one_shot = true
-	timer.connect("timeout", enable_random_texture_rect)
-	add_child(timer)
-	timer.start()
-
 	# Initially disable all TextureRect children
 	for child in get_children():
 		if child is TextureRect:
 			child.visible = false
+
+	# Enable one TextureRect randomly
+	enable_random_texture_rect()
 
 # Function to randomly enable one of the TextureRect children
 func enable_random_texture_rect():
