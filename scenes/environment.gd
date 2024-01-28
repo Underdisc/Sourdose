@@ -8,6 +8,9 @@ var noise = FastNoiseLite.new()
 var blocks: Array[Node3D]
 var active_blocks: Array[int]
 var inactive_blocks: Array[int]
+var pidgeons: Array[Node3D]
+var pidgeon_frequency = 3
+
 
 func _ready():
 	noise.noise_type = FastNoiseLite.NoiseType.TYPE_SIMPLEX_SMOOTH
@@ -33,6 +36,17 @@ func spawn_block(mesh_idx, idx, spin):
 	blocks.append(block)
 	add_child(block)
 	inactive_blocks.push_back(idx)
+	instantiate_pidgeons(block)
+
+func instantiate_pidgeons(block):
+	var spawn_area = block.get_node("PidgeonSpawn").get_node("Area")
+	var area_size = spawn_area.shape.size
+	for x in range(0, floor(area_size.x * pidgeon_frequency)):
+		for z in range(0, floor(area_size.z * pidgeon_frequency)):
+			var pidgeon = pidgeon_scene.instantiate()
+			pidgeon.position = Vector3(0, 0, 10);
+			add_child(pidgeon)
+			pidgeons.push_back(pidgeon)
 
 func remove_block_from_path():
 	inactive_blocks.push_back(active_blocks.front())
@@ -48,35 +62,38 @@ func add_block_to_path():
 	move_point.z = -1 * next_block_move_index * collision_volume.shape.size.z
 	next_block_move_index += 1
 	block.position = move_point
-	spawn_pidgeons(block)
+	add_pidgeons_to_block(block)
 	active_blocks.push_back(block_idx)
 	inactive_blocks.remove_at(inactive_idx)
 	
 
-func spawn_pidgeons(block):
+func add_pidgeons_to_block(block):
 	var spawn_area = block.get_node("PidgeonSpawn").get_node("Area")
 	var area_size = spawn_area.shape.size
 	var dimensions = Vector2(area_size.x, area_size.z)
 	var half_dims = dimensions / 2
 	var scan_start = Vector2(block.position.x - half_dims.x, block.position.z + half_dims.y)
-	var frequency = 5
-	for x in range(0, floor(area_size.x * frequency)):
-		for z in range(0, floor(area_size.z * frequency)):
-			var offset = Vector2(float(x) / frequency, -float(z) / frequency)
+	for x in range(0, floor(area_size.x * pidgeon_frequency)):
+		for z in range(0, floor(area_size.z * pidgeon_frequency)):
+			var offset = Vector2(float(x) / pidgeon_frequency, -float(z) / pidgeon_frequency)
+
 			var possible_spawn = scan_start + offset
 			var sample = noise.get_noise_2dv(possible_spawn) * 0.7
 			var bias = 0.2
 			if sample + randf() * bias > 0:
 				var y_pos = spawn_area.position.y - spawn_area.shape.size.y / 2
-				var spawn_position = Vector3(possible_spawn.x, y_pos, possible_spawn.y)
-				spawn_pidgeon(spawn_position)
+				var move_position = Vector3(possible_spawn.x, y_pos, possible_spawn.y)
+				move_pidgeon(move_position)
 
-func spawn_pidgeon(spawn_position):
-	var pidgeon = pidgeon_scene.instantiate()
+
+func move_pidgeon(move_position):
+	var pidgeon = pidgeons.front()
 	var offset = Vector3(randf_range(-0.05, 0.05),0, randf_range(-0.05, 0.05))
-	pidgeon.position = spawn_position + offset
+	pidgeon.position = move_position + offset
 	pidgeon.rotation.y = randf_range(-PI, PI)
-	add_child(pidgeon)
+	pidgeon.moved_onto_block()
+	pidgeons.pop_front()
+	pidgeons.push_back(pidgeon)
 
 func _on_player_need_new_block():
 	add_block_to_path()
