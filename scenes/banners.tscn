@@ -20,53 +20,48 @@ script = ExtResource("7_ctcvk")
 
 [node name="banner1" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 113.0
-offset_top = 508.0
-offset_right = 2139.0
-offset_bottom = 2008.0
+offset_left = 148.0
+offset_top = 55.0
+offset_right = 2200.0
+offset_bottom = 1325.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_rhg5w")
-stretch_mode = 2
 
 [node name="banner2" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 820.0
-offset_top = 373.0
-offset_right = 2389.0
-offset_bottom = 1873.0
+offset_left = 431.0
+offset_top = 242.0
+offset_right = 2570.0
+offset_bottom = 2287.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_ki4b4")
-stretch_mode = 2
 
 [node name="banner3" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 237.0
-offset_top = 41.0
-offset_right = 2043.0
-offset_bottom = 1541.0
+offset_left = 59.0
+offset_top = 66.0
+offset_right = 2913.0
+offset_bottom = 2436.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_j13sa")
-stretch_mode = 2
 
 [node name="banner4" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 911.0
-offset_top = 74.0
-offset_right = 2411.0
-offset_bottom = 1574.0
-scale = Vector2(0.2, 0.2)
+offset_left = 752.0
+offset_top = 26.0
+offset_right = 2392.0
+offset_bottom = 1786.0
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_5p0b8")
-stretch_mode = 2
 
 [node name="banner5" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 82.0
-offset_top = 221.0
-offset_right = 2130.0
-offset_bottom = 1721.0
+offset_left = 534.0
+offset_top = -15.0
+offset_right = 3900.0
+offset_bottom = 2450.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_pjxod")
-stretch_mode = 2
 
 [node name="BannerCooldown Timer" type="Timer" parent="Control"]
 wait_time = 5.0

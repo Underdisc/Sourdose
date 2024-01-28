@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	await $"BannerCooldown Timer".timeout
 	
 	# hide all current banners
@@ -24,11 +24,13 @@ func _process(delta):
 		if child is TextureRect:
 			child.visible = false
 	
+	# choose whether a banner shall be displayed
+
 	# find random banner an enable it
 	randomize()
 	var banners = get_children()
 	var banner = banners[randi() % banners.size()]
 	if banner is TextureRect:
-		banner.set_visible(true)
-	
+			banner.set_visible(true)
+		
 	$"BannerCooldown Timer".start()
