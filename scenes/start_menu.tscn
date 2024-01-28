@@ -41,18 +41,21 @@ script = ExtResource("1_lr56i")
 environment_scene = ExtResource("4_j5d3q")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_si8ps")
-expand_mode = 2
+expand_mode = 3
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 424.0
-offset_top = 217.0
-offset_right = 768.0
-offset_bottom = 341.0
+offset_left = 459.0
+offset_top = 244.0
+offset_right = 803.0
+offset_bottom = 368.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_hcefg")
