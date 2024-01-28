@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6lnmdkvpm0pn"]
+[gd_scene load_steps=16 format=3 uid="uid://c6lnmdkvpm0pn"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_x5oyd"]
 [ext_resource type="PackedScene" uid="uid://cjqc8n48hlomt" path="res://scenes/block.tscn" id="2_45ywl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5klc6c3w8vkx" path="res://scenes/UIinGame.tscn" id="4_31v44"]
 [ext_resource type="PackedScene" uid="uid://bqulmgpo1jp37" path="res://scenes/breads/brötchen.tscn" id="5_nm4yx"]
 [ext_resource type="PackedScene" uid="uid://nbtxwp8utk81" path="res://scenes/breads/bread_sandwich.tscn" id="6_nb1r5"]
+[ext_resource type="PackedScene" uid="uid://cbgnp25dg8wor" path="res://scenes/breads/bread_baguette.tscn" id="7_i4bnq"]
 [ext_resource type="PackedScene" uid="uid://dhf8nyi5p8an1" path="res://scenes/banners.tscn" id="8_xp26u"]
 [ext_resource type="Script" path="res://scenes/SceneLoader.gd" id="9_c77kx"]
 
@@ -44,7 +45,7 @@ block_scene = ExtResource("2_45ywl")
 [node name="BreadLauncher" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.186159)
 script = ExtResource("2_o4tks")
-bread_meshes = Array[PackedScene]([ExtResource("4_7x1ut"), ExtResource("5_nm4yx"), ExtResource("6_nb1r5")])
+bread_meshes = Array[PackedScene]([ExtResource("4_7x1ut"), ExtResource("5_nm4yx"), ExtResource("6_nb1r5"), ExtResource("7_i4bnq")])
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.964096, 0.265556, 0, -0.265556, 0.964096, 0, -0.467225, -1.21623)
