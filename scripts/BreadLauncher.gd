@@ -6,13 +6,17 @@ extends Node3D
 # Speed at which the model is shot
 var shoot_speed: float = 10.0
 
+var bread_thrown: int = 0
+
+@export var bread_amount: int = 100
+
 signal thrown
 
 func _ready():
 	pass
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot_bread"):
+	if Input.is_action_just_pressed("shoot_bread") and bread_thrown < bread_amount:
 		shoot_model()
 
 func shoot_model() -> void:
@@ -29,6 +33,7 @@ func shoot_model() -> void:
 	# Add the model instance to the scene
 	get_tree().root.add_child(model_instance)
 	
+	bread_thrown += 1
 	
 
 	# Emit the "thrown" signal when the bread is generated
